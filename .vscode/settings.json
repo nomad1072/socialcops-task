@@ -1,0 +1,7 @@
+{
+  "editor.formatOnSave": true,
+  "eslint.packageManager": "yarn",
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": false,
+  "eslint.enable": true,
+  "eslint.autoFixOnSave": true
+}
