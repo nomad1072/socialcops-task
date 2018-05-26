@@ -23,6 +23,7 @@
     "bunyan": "^1.8.12",
     "bunyan-sentry-stream": "^1.2.1",
     "express": "^4.16.3",
+    "fast-json-patch": "^2.0.6",
     "image-downloader": "^3.3.0",
     "jimp": "^0.2.28",
     "jsonwebtoken": "^8.2.1",
