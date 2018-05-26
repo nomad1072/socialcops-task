@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "format": "prettier --write '**/*.js'",
-    "lint": "eslint '**/*.js' --quiet"
+    "lint": "eslint '**/*.js' --quiet",
+    "start": "node app.js"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
@@ -16,5 +17,13 @@
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.8.2",
     "prettier": "^1.12.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "bunyan": "^1.8.12",
+    "bunyan-sentry-stream": "^1.2.1",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.2.1",
+    "raven": "^2.6.2"
   }
 }
