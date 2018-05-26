@@ -4,8 +4,11 @@ const raven = require('raven');
 const { router } = require('./routers/index');
 const { sentryDsn } = require('./config');
 const { logger } = require('./util/misc');
+const path = require('path');
 
 const app = express();
+
+app.use(express.static(path.join(__dirname, 'images')));
 
 raven.config(sentryDsn).install();
 

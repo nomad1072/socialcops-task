@@ -1,4 +1,5 @@
 const { authRouter } = require('./auth');
+const { miscRouter } = require('./misc');
 const express = require('express');
 const { jwtSecret } = require('../config');
 const jwt = require('jsonwebtoken');
@@ -25,6 +26,7 @@ router.all('*', (req, res, next) => {
 });
 
 router.get('/ping', (req, res) => res.status(200).json({ ping: 'pong' }));
+router.use('/image', miscRouter);
 
 module.exports = {
   router
