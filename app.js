@@ -19,6 +19,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/api/v1', router);
 
+app.use('*', (req, res) => res.status(404).send("Sorry can't find that!"));
+
 const port = process.env.port || 8080;
 
 app.listen(port, () => {
