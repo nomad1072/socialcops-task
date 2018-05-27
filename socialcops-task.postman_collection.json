@@ -1,0 +1,116 @@
+{
+	"id": "21dde26d-4137-453e-8d4b-f6cd821546be",
+	"name": "socialcops-task",
+	"description": null,
+	"auth": null,
+	"events": null,
+	"variables": null,
+	"order": [
+		"7d94dcc0-9573-4cfa-946a-1472f0d72387",
+		"fb13459a-5ee8-434a-9182-d4c9cf8846a7",
+		"388d2f73-0fed-4749-bfa2-4c038ad77bd8"
+	],
+	"folders_order": [],
+	"folders": [],
+	"requests": [
+		{
+			"id": "388d2f73-0fed-4749-bfa2-4c038ad77bd8",
+			"name": "http://localhost:8080/api/v1/image/thumbnail?url=https://pbs.twimg.com/profile_images/927446347879292930/Fi0D7FGJ_400x400.jpg",
+			"url": "http://localhost:8080/api/v1/image/thumbnail?url=https://pbs.twimg.com/profile_images/927446347879292930/Fi0D7FGJ_400x400.jpg",
+			"description": "To fetch the thumbnail from a public URL, the intermediate api is redirected to /image/:id",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "x-jwt-token",
+					"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5vbWFkMTA3MiIsImlhdCI6MTUyNzQ0ODcyMX0.rIfxjlFFeSj_AzkAnAwtS2JPQlMhpE-ReMYlAA8UpGQ",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "url",
+					"value": "https://pbs.twimg.com/profile_images/927446347879292930/Fi0D7FGJ_400x400.jpg",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "x-jwt-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5vbWFkMTA3MiIsImlhdCI6MTUyNzQ0ODcyMX0.rIfxjlFFeSj_AzkAnAwtS2JPQlMhpE-ReMYlAA8UpGQ\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "7d94dcc0-9573-4cfa-946a-1472f0d72387",
+			"name": "http://localhost:8080/api/v1/auth/login",
+			"url": "http://localhost:8080/api/v1/auth/login",
+			"description": "Endpoint for login. Returns a jwt token which can be used to access further resources.",
+			"data": [
+				{
+					"key": "username",
+					"value": "nomad1072",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "myrandompassword",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "fb13459a-5ee8-434a-9182-d4c9cf8846a7",
+			"name": "http://localhost:8080/api/v1/resource",
+			"url": "http://localhost:8080/api/v1/resource",
+			"description": "JSON patch body along with the resource for patch requests",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "x-jwt-token",
+					"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5vbWFkMTA3MiIsImlhdCI6MTUyNzQ0ODM3OX0.j1TQaYu5KDbfIqqalVL7XAApkiKynrn46kyX5t8_J6I",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"method": "PATCH",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"rawModeData": "{\n\t\"resource\": {\n\t\t\"name\": \"Siddharth\",\n        \"username\": \"nomad1072\",\n        \"place\": \"Bangalore\",\n        \"random\": \"bale\"\n\t},\n\t\"patch\": [\n        { \"op\": \"add\", \"path\": \"/name\", \"value\": \"Siddharth Lanka\" },\n        { \"op\": \"remove\", \"path\": \"/random\" }\n      ]\n}",
+			"headers": "x-jwt-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5vbWFkMTA3MiIsImlhdCI6MTUyNzQ0ODM3OX0.j1TQaYu5KDbfIqqalVL7XAApkiKynrn46kyX5t8_J6I\nContent-Type: application/json\n",
+			"pathVariables": {}
+		}
+	]
+}
