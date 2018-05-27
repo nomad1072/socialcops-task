@@ -28,14 +28,14 @@ router.all('*', (req, res, next) => {
 
 router.get('/ping', (req, res) => res.status(200).json({ ping: 'pong' }));
 router.use('/image', miscRouter);
-router.patch('/change', (req, res) => {
+router.patch('/resource', (req, res) => {
   try {
     let document = req.body.resource;
     const { patch } = req.body;
     document = jsonpatch.applyPatch(document, patch).newDocument;
     return res.status(200).json({ document });
   } catch (e) {
-    return res.status(400).json({ err: e });
+    return res.status(400).json({ err: e, message: 'Invalid patch object' });
   }
 });
 

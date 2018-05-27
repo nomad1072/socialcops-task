@@ -3,6 +3,7 @@ const download = require('image-downloader');
 const path = require('path');
 const Jimp = require('jimp');
 const generateName = require('sillyname');
+const fs = require('fs');
 
 const options = {
   dest: path.join(__dirname, '../images')
@@ -27,15 +28,20 @@ exports.thumbnail = async (req, res) => {
   res.redirect(`../image/${sillyName}.jpg`);
 };
 
-exports.getImage = (req, res) =>
-  res.sendFile(
-    req.params.id,
-    {
-      root: path.join(__dirname, '../images')
-    },
-    err => {
-      if (err) {
-        logger.error(err);
+exports.getImage = (req, res) => {
+  if (fs.existsSync(path.join(__dirname, `../images/${req.params.id}`))) {
+    return res.sendFile(
+      req.params.id,
+      {
+        root: path.join(__dirname, '../images')
+      },
+      err => {
+        if (err) {
+          logger.error(err);
+          throw err;
+        }
       }
-    }
-  );
+    );
+  }
+  return res.status(401).json({ err: 'Invalud file name' });
+};
