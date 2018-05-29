@@ -9,6 +9,8 @@
 
 To build from the docker image
 
+docker pull nomad1072/socialcops-task
+
 docker run -p <your_port>:8080 -d nomad1072/socialcops-task:latest
 
 For more documentation, please follow the below mentioned link:
